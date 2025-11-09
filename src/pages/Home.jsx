@@ -1,10 +1,20 @@
 import React from "react";
-import SliderCarousel from "../components/utilities/SliderCarousal";
+import SliderCarousel from "../components/SliderCarousal";
+import Banner from "../components/Banner";
+import Categories from "../components/Categories";
 
 const Home = () => {
   return (
     <div>
-      <SliderCarousel />
+      <div className="backdrop-blur-sm rounded-xl">
+        <div className="container mx-auto px-4 py-8 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <Banner />
+            <SliderCarousel />
+          </div>
+        </div>
+      </div>
+      <Categories />
     </div>
   );
 };

@@ -8,7 +8,7 @@ export default function MainLayout() {
       <header>
         <NavBar />
       </header>
-      <main>
+      <main className="flex-1 px-[3%] xl:px-[7%] py-[2%]">
         <Outlet />
       </main>
       <Footer />
