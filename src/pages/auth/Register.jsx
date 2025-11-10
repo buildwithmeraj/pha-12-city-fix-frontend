@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate, useLocation } from "react-router";
 import toast from "react-hot-toast";
 import Error from "../../components/utilities/Error";
 import { IoEye } from "react-icons/io5";
@@ -15,9 +15,20 @@ const Register = () => {
     registerUsingEmail,
     signInUsingGoogle,
     setUser,
+    user,
     firebaseErrors,
     updateUserProfile,
   } = useAuth();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && user.email) {
+      navigate(location.state ? location.state : "/");
+    }
+  }, [user, location.state, navigate]);
+
   const [error, setError] = useState(null);
   const [showPass, setShowPass] = useState(false);
   const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;

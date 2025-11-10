@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
@@ -9,11 +9,17 @@ import { FaSignInAlt } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa6";
 
 const Login = () => {
-  const { signInUsingEmail, signInUsingGoogle, setUser, firebaseErrors } =
+  const { signInUsingEmail, signInUsingGoogle, setUser, user, firebaseErrors } =
     useAuth();
 
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && user.email) {
+      navigate(location.state ? location.state : "/");
+    }
+  }, [user, location.state, navigate]);
 
   const [error, setError] = useState(null);
   const [showPass, setShowPass] = useState(false);
@@ -52,14 +58,6 @@ const Login = () => {
           : "Login failed. Please try again.";
         setError(errMsg);
       });
-  };
-
-  const handleForgotPassword = () => {
-    const email = emailRef.current?.value;
-    if (!email) {
-      return setError("Please enter your email address first.");
-    }
-    navigate("/forgot-password", { state: { email } });
   };
 
   const handleGoogleSignIn = () => {

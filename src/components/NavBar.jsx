@@ -1,8 +1,26 @@
 import React from "react";
 import { Link } from "react-router";
 import logo from "../assets/logo.png";
+import { useAuth } from "../contexts/AuthContext";
+import toast from "react-hot-toast";
+import { HiUserCircle } from "react-icons/hi2";
+import { FaSignInAlt } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
+import { FaUserPlus } from "react-icons/fa6";
 
 const NavBar = () => {
+  const { user, logOut, setUser } = useAuth();
+  const handleLogout = () => {
+    toast.success("Logged out successfully");
+    setTimeout(() => {
+      logOut()
+        .then(() => setUser(null))
+        .catch((error) => {
+          toast.error("Logout error: " + error.message);
+        });
+    }, 2000);
+  };
+
   const navLinks = (
     <>
       <li>
@@ -54,12 +72,51 @@ const NavBar = () => {
       <div className="navbar-end gap-4">
         <a className="">Home</a>
         <a className="">Issues</a>
-        <Link className="btn" to="/login">
-          Login
-        </Link>
-        <Link className="btn" to="/register">
-          Register
-        </Link>
+        {user ? (
+          <>
+            <div
+              className="relative tooltip tooltip-bottom hidden md:flex"
+              data-tip={user?.displayName || "User"}
+            >
+              {user.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="profile picture"
+                  className="w-10 h-10 rounded-full border-2 border-amber-600 cursor-help"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <HiUserCircle className="text-5xl" />
+              )}
+            </div>
+            <Link to="/profile" className="btn btn-info text-white">
+              <HiUserCircle className="text-xl" />
+              Profile
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="btn btn-error text-white hidden lg:flex"
+            >
+              <FaSignOutAlt />
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <HiUserCircle className="text-5xl mr-2 hidden lg:flex" />
+            <Link to="/login" className="btn btn-info text-white">
+              <FaSignInAlt />
+              Login
+            </Link>
+            <Link
+              to="/register"
+              className="btn btn-success text-white hidden md:flex"
+            >
+              <FaUserPlus />
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
