@@ -1,5 +1,5 @@
 import React from "react";
-import error404 from "../../assets/404.png";
+import error404 from "../../assets//404.png";
 
 const ErrorImage = () => {
   return (
