@@ -13,7 +13,7 @@ const Categories = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Garbage</h2>
+            <h3 className="card-title">Garbage</h3>
             <p>
               Keep your neighborhood free from uncollected waste and overflowing
               bins.
@@ -32,7 +32,7 @@ const Categories = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Illegal Construction</h2>
+            <h3 className="card-title">Illegal Construction</h3>
             <p>Report unauthorized buildings or encroachments in your area.</p>
             <div className="card-actions justify-center">
               <button className="btn btn-primary">View Issues</button>
@@ -48,7 +48,7 @@ const Categories = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Broken Public Property</h2>
+            <h3 className="card-title">Broken Public Property</h3>
             <p>
               Help restore damaged benches, lights, or signs around your city.
             </p>
@@ -66,7 +66,7 @@ const Categories = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Road Damage</h2>
+            <h3 className="card-title">Road Damage</h3>
             <p>
               Report potholes, cracks, or broken sidewalks to make roads safer.
             </p>

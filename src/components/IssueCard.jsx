@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const IssueCard = ({ issue }) => {
   return (
@@ -6,14 +7,12 @@ const IssueCard = ({ issue }) => {
       key={issue._id || issue.id}
       className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-green-100 hover:border-green-300 overflow-hidden group"
     >
-      {/* Image Container with Overlay */}
       <figure className="relative overflow-hidden h-56">
         <img
           src={issue.image}
           alt={issue.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        {/* Status Badge */}
         <div className="absolute top-3 right-3">
           <span
             className={`badge badge-lg font-semibold ${
@@ -30,14 +29,11 @@ const IssueCard = ({ issue }) => {
       </figure>
 
       <div className="card-body p-5">
-        {/* Title */}
         <h3 className="card-title text-xl font-bold text-gray-800 mb-3 line-clamp-2">
           {issue.title}
         </h3>
 
-        {/* Info Grid */}
         <div className="space-y-2 mb-4">
-          {/* Category */}
           <div className="flex items-center gap-2 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +52,6 @@ const IssueCard = ({ issue }) => {
             <span className="text-gray-700 font-medium">{issue.category}</span>
           </div>
 
-          {/* Location */}
           <div className="flex items-center gap-2 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +76,6 @@ const IssueCard = ({ issue }) => {
             <span className="text-gray-700">{issue.location}</span>
           </div>
 
-          {/* Amount */}
           <div className="flex items-center gap-2 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,9 +97,11 @@ const IssueCard = ({ issue }) => {
           </div>
         </div>
 
-        {/* Action Button */}
         <div className="card-actions justify-end mt-2">
-          <button className="btn bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white border-none w-full shadow-md hover:shadow-lg transition-all duration-300">
+          <Link
+            className="btn bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white border-none w-full shadow-md hover:shadow-lg transition-all duration-300"
+            to={`/issue/${issue._id}`}
+          >
             <span>See Details</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +117,7 @@ const IssueCard = ({ issue }) => {
                 d="M13 7l5 5m0 0l-5 5m5-5H6"
               />
             </svg>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

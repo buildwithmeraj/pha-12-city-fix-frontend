@@ -2,6 +2,7 @@ import React from "react";
 import SliderCarousel from "../components/SliderCarousal";
 import Banner from "../components/Banner";
 import Categories from "../components/Categories";
+import LatestIssues from "../components/LatestIssues";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         </div>
       </div>
       <Categories />
+      <LatestIssues />
     </div>
   );
 };
