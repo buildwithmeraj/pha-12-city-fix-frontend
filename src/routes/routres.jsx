@@ -9,6 +9,8 @@ import AddIssue from "../pages/issues/AddIssue";
 import AllIssues from "../pages/issues/AllIssues";
 import IssueDetails from "../pages/issues/IssueDetails";
 import Profile from "../pages/auth/Profile";
+import MyIssues from "../pages/auth/MyIssues";
+import MyContributions from "../pages/auth/MyContributions";
 
 const routes = createBrowserRouter([
   {
@@ -30,9 +32,25 @@ const routes = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+      {
+        path: "/my-issues",
+        element: (
+          <PrivateRoutes>
+            <MyIssues />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/my-contributions",
+        element: (
+          <PrivateRoutes>
+            <MyContributions />
+          </PrivateRoutes>
+        ),
+      },
       { path: "/issues", element: <AllIssues /> },
       {
-        path: "/add-issue",
+        path: "/report-issue",
         element: (
           <PrivateRoutes>
             <AddIssue />

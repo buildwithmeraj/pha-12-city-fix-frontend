@@ -15,7 +15,7 @@ const IssueDetails = () => {
 
   const fetchContributions = async () => {
     try {
-      const response = await axiosInstance.get(`/contributions/${user?.email}`);
+      const response = await axiosInstance.get(`/contributions?id=${id}`);
       setContributions(response.data);
     } catch (error) {
       toast.error("Failed to load contributions:", error.message);
