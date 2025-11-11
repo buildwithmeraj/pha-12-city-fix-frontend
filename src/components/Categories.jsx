@@ -18,9 +18,6 @@ const Categories = () => {
               Keep your neighborhood free from uncollected waste and overflowing
               bins.
             </p>
-            <div className="card-actions justify-center">
-              <button className="btn btn-primary">View Issues</button>
-            </div>
           </div>
         </div>
 
@@ -34,9 +31,6 @@ const Categories = () => {
           <div className="card-body">
             <h3 className="card-title">Illegal Construction</h3>
             <p>Report unauthorized buildings or encroachments in your area.</p>
-            <div className="card-actions justify-center">
-              <button className="btn btn-primary">View Issues</button>
-            </div>
           </div>
         </div>
 
@@ -52,9 +46,6 @@ const Categories = () => {
             <p>
               Help restore damaged benches, lights, or signs around your city.
             </p>
-            <div className="card-actions justify-center">
-              <button className="btn btn-primary">View Issues</button>
-            </div>
           </div>
         </div>
 
@@ -70,9 +61,6 @@ const Categories = () => {
             <p>
               Report potholes, cracks, or broken sidewalks to make roads safer.
             </p>
-            <div className="card-actions justify-center">
-              <button className="btn btn-primary">View Issues</button>
-            </div>
           </div>
         </div>
       </div>

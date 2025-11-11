@@ -3,6 +3,8 @@ import SliderCarousel from "../components/SliderCarousal";
 import Banner from "../components/Banner";
 import Categories from "../components/Categories";
 import LatestIssues from "../components/LatestIssues";
+import CommunityStats from "../components/CommunityStats";
+import VolunteerCTA from "../components/VolunteerCTA";
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
       </div>
       <Categories />
       <LatestIssues />
+      <CommunityStats />
+      <VolunteerCTA />
     </div>
   );
 };
