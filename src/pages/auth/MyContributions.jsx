@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axiosInstance from "../../hooks/axiosInstance";
 import { useAuth } from "../../contexts/AuthContext";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const MyContributions = () => {
   const [contributions, setContributions] = useState([]);
@@ -19,6 +21,34 @@ const MyContributions = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const downloadReport = () => {
+    const doc = new jsPDF();
+    console.log(user?.email);
+    doc.text("Community Cleanliness Portal", 14, 15);
+    doc.text(`Contribution Report for ${user?.displayName}`, 14, 25);
+    doc.text(`Email: ${user?.email}`, 14, 35);
+
+    const tableColumn = ["Issue Title", "Amount", "Date"];
+    const tableRows = [];
+
+    contributions.forEach((contrib) => {
+      const row = [
+        contrib.issueTitle,
+        `$${contrib.amount}`,
+        new Date(contrib.date).toLocaleDateString(),
+      ];
+      tableRows.push(row);
+    });
+
+    autoTable(doc, {
+      head: [tableColumn],
+      body: tableRows,
+      startY: 45,
+    });
+
+    doc.save("My_Contribution_Report.pdf");
   };
 
   useEffect(() => {
@@ -111,6 +141,11 @@ const MyContributions = () => {
             </div>
           )}
         </div>
+      </div>
+      <div className="mt-4 text-center">
+        <button onClick={downloadReport} className="btn btn-secondary">
+          Download Report
+        </button>
       </div>
     </div>
   );

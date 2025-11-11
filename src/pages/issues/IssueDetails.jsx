@@ -62,6 +62,7 @@ const IssueDetails = () => {
     const newContribution = {
       _id: Date.now().toString(),
       issueId,
+      issueTitle: issue.title,
       contributorName,
       contributorImage: user?.photoURL || "https://i.pravatar.cc/150?img=10",
       amount: parseFloat(amount),
