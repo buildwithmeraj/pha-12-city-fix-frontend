@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AddIssue from "../pages/issues/AddIssue";
 import AllIssues from "../pages/issues/AllIssues";
 import IssueDetails from "../pages/issues/IssueDetails";
+import Profile from "../pages/auth/Profile";
 
 const routes = createBrowserRouter([
   {
@@ -21,6 +22,14 @@ const routes = createBrowserRouter([
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoutes>
+            <Profile />
+          </PrivateRoutes>
+        ),
+      },
       { path: "/issues", element: <AllIssues /> },
       {
         path: "/add-issue",
