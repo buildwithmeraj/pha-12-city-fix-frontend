@@ -1,27 +1,22 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import logo from "../assets/logo.png";
 import { useAuth } from "../contexts/AuthContext";
-import toast from "react-hot-toast";
 import { HiUserCircle } from "react-icons/hi2";
-import { FaSignInAlt } from "react-icons/fa";
-import { FaSignOutAlt } from "react-icons/fa";
-import { FaUserPlus } from "react-icons/fa6";
 import ThemeSwitcher from "../components/utilities/ThemeSwitcher";
+import toast from "react-hot-toast";
+import { LogOut, UserRound } from "lucide-react";
 
 const NavBar = () => {
   const { user, logOut, setUser } = useAuth();
   const handleLogout = () => {
     toast.success("Logged out successfully");
-    setTimeout(() => {
-      logOut()
-        .then(() => setUser(null))
-        .catch((error) => {
-          toast.error("Logout error: " + error.message);
-        });
-    }, 2000);
+    logOut()
+      .then(() => setUser(null))
+      .catch((error) => {
+        toast.error("Logout error: " + error.message);
+      });
   };
-
   const navLinks = (
     <>
       <li>
@@ -71,56 +66,62 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="navbar-end gap-4">
-        <a className="">Home</a>
-        <Link to="/issues">Issues</Link>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/issues">Issues</NavLink>
         {user ? (
           <>
-            <div
-              className="relative tooltip tooltip-bottom hidden md:flex"
-              data-tip={user?.displayName || "User"}
-            >
-              {user.photoURL ? (
-                <img
-                  src={user.photoURL}
-                  alt="profile picture"
-                  className="w-10 h-10 rounded-full border-2 border-amber-600 cursor-help"
-                  referrerPolicy="no-referrer"
-                />
-              ) : (
-                <HiUserCircle className="text-5xl" />
-              )}
+            <NavLink to="/report-issue">Report Issue</NavLink>
+            <NavLink to="/my-issues">My Issues</NavLink>
+            <NavLink to="/my-contributions">My Contributions</NavLink>
+            <div className="dropdown dropdown-center">
+              <Link to="javascript:void(0)" tabIndex={0}>
+                {user.photoURL ? (
+                  <img
+                    src={user.photoURL}
+                    alt="profile picture"
+                    className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <HiUserCircle className="text-5xl" />
+                )}
+              </Link>
+              <ul
+                tabIndex="-1"
+                className="dropdown-content menu bg-base-100 rounded-box z-1 w-auto p-4 shadow-sm m-2"
+              >
+                <li className="mb-2">
+                  <Link
+                    to="/profile"
+                    className="btn btn-secondary text-white flex items-center justify-center gap-2"
+                  >
+                    <UserRound size={20} />
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-error text-white flex items-center justify-center gap-2"
+                  >
+                    <LogOut size={16} />
+                    Logout
+                  </button>
+                </li>
+              </ul>
             </div>
-            <Link to="/profile" className="btn btn-info text-white">
-              <HiUserCircle className="text-xl" />
-              Profile
-            </Link>
-            <button
-              onClick={handleLogout}
-              className="btn btn-error text-white hidden lg:flex"
-            >
-              <FaSignOutAlt />
-              Logout
-            </button>
           </>
         ) : (
           <>
-            <HiUserCircle className="text-5xl mr-2 hidden lg:flex" />
-            <Link to="/login" className="btn btn-info text-white">
-              <FaSignInAlt />
+            <NavLink to="/login" className="hidden md:block">
               Login
-            </Link>
-            <Link
-              to="/register"
-              className="btn btn-success text-white hidden md:flex"
-            >
-              <FaUserPlus />
+            </NavLink>
+            <NavLink to="/register" className="hidden md:block">
               Register
-            </Link>
+            </NavLink>
           </>
         )}
-        <div>
-          <ThemeSwitcher />
-        </div>
+        <ThemeSwitcher />
       </div>
     </div>
   );
