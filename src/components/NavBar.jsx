@@ -7,6 +7,7 @@ import { HiUserCircle } from "react-icons/hi2";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa6";
+import ThemeSwitcher from "../components/utilities/ThemeSwitcher";
 
 const NavBar = () => {
   const { user, logOut, setUser } = useAuth();
@@ -117,6 +118,9 @@ const NavBar = () => {
             </Link>
           </>
         )}
+        <div>
+          <ThemeSwitcher />
+        </div>
       </div>
     </div>
   );
