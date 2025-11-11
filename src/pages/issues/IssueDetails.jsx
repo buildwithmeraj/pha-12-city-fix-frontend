@@ -48,6 +48,7 @@ const IssueDetails = () => {
     const newContribution = {
       issueId: id,
       issueTitle: issue.title,
+      issueCategory: issue.category,
       contributorName: form.contributorName.value,
       contributorImage: user?.photoURL || "https://i.pravatar.cc/150?img=10",
       email: form.email.value,

@@ -86,9 +86,14 @@ const MyContributions = () => {
                   <th scope="col" className="px-6 py-3">
                     Contributor
                   </th>
-                  <th scope="col">Issue</th>
                   <th scope="col" className="px-6 py-3">
-                    Amount
+                    Issue
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Category
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Amount Paid
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Date
@@ -127,6 +132,10 @@ const MyContributions = () => {
                       >
                         {contrib.issueTitle}
                       </Link>
+                    </td>
+
+                    <td className="px-6 py-4">
+                      {contrib.issueCategory || "N/A"}
                     </td>
 
                     <td className="px-6 py-4">

@@ -126,7 +126,14 @@ const MyIssues = () => {
                   key={issue._id}
                   className="bg-base-100 border-b border-base-200 hover:bg-base-200/60 transition-colors"
                 >
-                  <td className="px-6 py-4 font-medium">{issue.title}</td>
+                  <td className="px-6 py-4 font-medium">
+                    <Link
+                      to={`/issue/${issue._id}`}
+                      className="font-medium text-primary hover:underline"
+                    >
+                      {issue.title}
+                    </Link>
+                  </td>
                   <td className="px-6 py-4">{issue.category}</td>
                   <td className="px-6 py-4">{issue.location}</td>
                   <td className="px-6 py-4 text-success font-semibold">
@@ -140,20 +147,14 @@ const MyIssues = () => {
                     {issue.status}
                   </td>
                   <td className="px-6 py-4 text-right flex justify-end gap-3">
-                    <Link
-                      to={`/issue/${issue._id}`}
-                      className="font-medium text-primary hover:underline"
-                    >
-                      View
-                    </Link>
                     <button
-                      className="font-medium text-secondary hover:underline"
+                      className="font-medium text-info cursor-pointer hover:underline"
                       onClick={() => handleEdit(issue)}
                     >
-                      Edit
+                      Update
                     </button>
                     <button
-                      className="font-medium text-error hover:underline"
+                      className="font-medium text-error cursor-pointer hover:underline"
                       onClick={() => handleDelete(issue)}
                     >
                       Delete
@@ -278,7 +279,7 @@ const MyIssues = () => {
                   type="url"
                   name="image"
                   defaultValue={editIssue.image}
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="https://imgbb.com/image.jpg"
                   className="input input-bordered w-full"
                 />
               </div>
@@ -296,7 +297,6 @@ const MyIssues = () => {
                 />
               </div>
 
-              {/* Modal Actions */}
               <div className="modal-action">
                 <button
                   type="button"
