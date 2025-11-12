@@ -29,10 +29,8 @@ const VolunteerForm = () => {
 
   return (
     <div className="max-w-3xl mx-auto bg-base-100 border border-base-300 rounded-xl shadow-sm p-8 mt-10">
-      <h2 className="text-3xl font-bold text-center text-primary mb-6">
-        Volunteer with US
-      </h2>
-      <p className="text-center text-base-content/70 mb-8">
+      <h1 className="mb-4">Volunteer with US</h1>
+      <p className="text-center text-base-content/70 mb-6">
         Join hands to make our city cleaner, safer, and better. Fill out the
         form below to become a volunteer.
       </p>

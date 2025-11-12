@@ -1,11 +1,11 @@
-import { DollarSign, MapPinned, Tag } from "lucide-react";
+import { DollarSign, MapPinned, Tag, ChevronRight } from "lucide-react";
 import React from "react";
 import { Link } from "react-router";
 
 const IssueCard = ({ issue }) => {
   return (
     <div
-      key={issue._id || issue.id}
+      key={issue._id}
       className="flex flex-col rounded-xl border border-base-300 bg-base-100 hover:bg-base-200 transition-all duration-300 shadow-sm hover:shadow-md overflow-hidden h-full"
     >
       {issue.image && (
@@ -34,7 +34,7 @@ const IssueCard = ({ issue }) => {
           <h3 className="font-semibold text-lg text-base-content line-clamp-2 mb-2">
             {issue.title}
           </h3>
-
+          <p className="truncate my-4">{issue.description}</p>{" "}
           <div className="text-sm text-base-content/70 space-y-1">
             <p className="flex items-center gap-2">
               <Tag size={16} />
@@ -53,8 +53,11 @@ const IssueCard = ({ issue }) => {
         </div>
 
         <div className="pt-3">
-          <Link to={`/issue/${issue._id}`} className="btn btn-primary w-full">
-            View Details
+          <Link
+            to={`/issue/${issue._id}`}
+            className="btn btn-primary w-full  flex items-center gap-2"
+          >
+            View Details <ChevronRight size={20} />
           </Link>
         </div>
       </div>

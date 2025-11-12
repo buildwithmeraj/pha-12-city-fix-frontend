@@ -5,7 +5,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { Link } from "react-router";
-import { Download, HeartHandshake } from "lucide-react";
+import { Download, HeartHandshake, Undo2, Plus, Search } from "lucide-react";
 import Loading from "../../components/utilities/Loading";
 
 const MyContributions = () => {
@@ -66,14 +66,25 @@ const MyContributions = () => {
     <div>
       <title>My Contributions - CityFix</title>
       <div className="px-2 md:px-4 lg:px-8">
-        <h2 className="">My Contributions ({contributions.length})</h2>
+        <h2>
+          My Contributions
+          {contributions.length === 0 ? "" : ` (${contributions.length})`}
+        </h2>
 
         {contributions.length === 0 ? (
-          <div className="text-center py-12 ">
-            <div className="text-lg md:text-xl text-base-content/70 flex items-center gap-2 justify-center">
-              <HeartHandshake />
-              There are no contribution from you.
-            </div>
+          <div className="flex flex-col items-center justify-center min-h-[50vh]">
+            <p className="flex flex-col items-center justify-center w-full max-w-md bg-base-100 border border-base-300 rounded-2xl shadow-md p-6 text-center">
+              <HeartHandshake size={70} className="text-gray-500 text-center" />
+              <p className="text-2xl text-base-content/70">
+                No contributions yet, browse issues to contribute.
+              </p>
+              <div className="mt-4">
+                <Link className="btn btn-primary" to="/issues">
+                  <Search />
+                  Browse Issue
+                </Link>
+              </div>
+            </p>
           </div>
         ) : (
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg border border-base-300">
@@ -84,7 +95,7 @@ const MyContributions = () => {
                     Contributor
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Issue
+                    Issue Title
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Category
@@ -108,24 +119,20 @@ const MyContributions = () => {
                       className="flex items-center px-6 py-4 font-medium whitespace-nowrap"
                     >
                       <img
-                        className="w-10 h-10 rounded-full border border-base-300"
+                        className="rounded-full border-2 border-primary w-10 h-10"
                         src={contrib.contributorImage}
                         alt={contrib.contributorName}
                       />
                       <div className="ps-3">
-                        <div className="text-base font-semibold">
-                          {contrib.contributorName}
-                        </div>
-                        <div className="text-sm opacity-70">
-                          {contrib.email || "Anonymous"}
-                        </div>
+                        <div className="text-base font-semibold">You</div>
+                        <div className="text-sm opacity-70"></div>
                       </div>
                     </th>
 
                     <td className="px-6 py-4">
                       <Link
                         to={`/issue/${contrib.issueId}`}
-                        className="hover:underline truncate"
+                        className="hover:underline truncate text-primary"
                       >
                         {contrib.issueTitle}
                       </Link>
@@ -136,7 +143,7 @@ const MyContributions = () => {
                     </td>
 
                     <td className="px-6 py-4">
-                      <span className="badge badge-lg bg-success text-success-content border-success font-bold">
+                      <span className="text-primary font-bold">
                         ${contrib.amount.toLocaleString()}
                       </span>
                     </td>
@@ -155,13 +162,13 @@ const MyContributions = () => {
           </div>
         )}
       </div>
-      <div className="mt-2 text-center">
+      <div className="mt-8 text-center">
         <button
           onClick={downloadReport}
           className="btn btn-success"
           disabled={contributions.length === 0}
         >
-          <Download size={16} />
+          <Download size={16} absoluteStrokeWidth />
           Download Report
         </button>
       </div>

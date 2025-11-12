@@ -26,7 +26,7 @@ const HeroCarousel = () => {
 
   return (
     <div className="backdrop-blur-lg ">
-      <div className="container mx-auto px-2 lg:px-4 py-8 lg:py-16">
+      <div className="container mx-auto px-2 lg:px-4 py-2">
         <div className="rounded-2xl shadow-xl bg-gradient-to-r from-green-600 to-emerald-600 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="flex flex-col justify-center text-white p-8 lg:p-12">
@@ -41,9 +41,9 @@ const HeroCarousel = () => {
                 </JackInTheBox>
               </div>
 
-              <h2 className="text-2xl lg:text-3xl font-semibold mb-4">
+              <h1 className="text-2xl lg:text-3xl font-semibold mb-4">
                 Building Better Communities Together
-              </h2>
+              </h1>
               <p className="mb-4">
                 <Typewriter
                   words={[
@@ -59,16 +59,16 @@ const HeroCarousel = () => {
                   delaySpeed={100}
                 />
               </p>
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="bg-white/10 rounded-lg p-4 text-center backdrop-blur-sm">
+              <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-8">
+                <div className="bg-white/10 rounded-lg p-3 lg:p-4 text-center backdrop-blur-sm">
                   <div className="text-2xl font-bold">400+</div>
                   <div className="text-sm text-white/80">Reported</div>
                 </div>
-                <div className="bg-white/10 rounded-lg p-4 text-center backdrop-blur-sm">
+                <div className="bg-white/10 rounded-lg p-3 lg:p-4 text-center backdrop-blur-sm">
                   <div className="text-2xl font-bold">250+</div>
                   <div className="text-sm text-white/80">Resolved</div>
                 </div>
-                <div className="bg-white/10 rounded-lg p-4 text-center backdrop-blur-sm">
+                <div className="bg-white/10 rounded-lg p-3 lg:p-4 text-center backdrop-blur-sm">
                   <div className="text-2xl font-bold">800+</div>
                   <div className="text-sm text-white/80">Contributors</div>
                 </div>

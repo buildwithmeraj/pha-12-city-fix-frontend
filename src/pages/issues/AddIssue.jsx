@@ -66,9 +66,7 @@ const AddIssue = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-base-100 shadow-md rounded-md">
       <title>Report Issue - CityFix</title>
-      <h2 className="text-2xl font-semibold mb-4 text-center">
-        Report an Issue
-      </h2>
+      <h1 className="mb-4">Report an Issue</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="label font-medium">Issue Title</label>

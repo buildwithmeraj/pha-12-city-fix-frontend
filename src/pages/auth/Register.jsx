@@ -19,6 +19,10 @@ const Register = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  if (user && user?.email) {
+    navigate("/profile");
+  }
+
   useEffect(() => {
     if (user && user.email) {
       navigate(location.state ? location.state : "/");
@@ -94,7 +98,7 @@ const Register = () => {
         <div className="hero-content flex-col">
           <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
             <div className="card-body">
-              <h2>Register</h2>
+              <h1>Register</h1>
               {error && <Error message={error} />}
               <fieldset className="fieldset">
                 <label className="label">Email</label>
@@ -148,7 +152,7 @@ const Register = () => {
                 </button>
                 <div className="flex flex-col md:flex-row items-center justify-between gap-2 lg:mt-2">
                   <button
-                    className="btn btn-block lg:flex-1 "
+                    className="btn btn-block btn-outline lg:flex-1 "
                     type="button"
                     onClick={handleGoogleSignUp}
                   >

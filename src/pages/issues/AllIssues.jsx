@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
 import toast from "react-hot-toast";
 import axiosInstance from "../../hooks/axiosInstance";
 import Loading from "../../components/utilities/Loading";
 import IssueCard from "../../components/IssueCard";
+import { TriangleAlert, Plus, Undo2 } from "lucide-react";
 
 const AllIssues = () => {
   const [issues, setIssues] = useState([]);
@@ -91,7 +93,6 @@ const AllIssues = () => {
           />
         </label>
       </form>
-
       <div className="flex flex-wrap justify-center gap-4 mb-6">
         <select
           className="select select-bordered"
@@ -116,9 +117,21 @@ const AllIssues = () => {
           <option value="ended">Ended</option>
         </select>
       </div>
+      <h2>All Issues{issues.length === 0 ? "" : ` (${issues.length})`}</h2>
 
       {issues.length === 0 ? (
-        <p className="text-center text-gray-500">No issues found.</p>
+        <div className="flex flex-col items-center justify-center min-h-[40vh]">
+          <p className="flex flex-col items-center justify-center w-full max-w-md bg-base-100 border border-base-300 rounded-2xl shadow-md p-6 text-center">
+            <TriangleAlert size={70} className="text-gray-500 text-center" />
+            <p className="text-2xl text-base-content/70">No Issue found.</p>
+            <div className="mt-4">
+              <Link className="btn btn-primary" to="/report-issue">
+                <Plus />
+                Report an Issue
+              </Link>
+            </div>
+          </p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {issues.map((issue) => (

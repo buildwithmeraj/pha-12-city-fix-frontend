@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router";
+import { useParams, Link } from "react-router";
 import { useAuth } from "../../contexts/AuthContext";
 import axiosInstance from "../../hooks/axiosInstance";
 import toast from "react-hot-toast";
 import Loading from "../../components/utilities/Loading";
-import { HandHeart, HeartHandshake, X } from "lucide-react";
+import {
+  HandHeart,
+  HeartHandshake,
+  X,
+  TriangleAlert,
+  Plus,
+  Undo2,
+} from "lucide-react";
 
 const IssueDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { user } = useAuth();
 
   const [issue, setIssue] = useState(null);
@@ -74,11 +80,21 @@ const IssueDetails = () => {
 
   if (!issue)
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <p className="text-lg text-base-content/70">Issue not found.</p>
-        <button onClick={() => navigate(-1)} className="btn btn-primary mt-4">
-          Go Back
-        </button>
+      <div className="flex flex-col items-center justify-center min-h-[60vh]">
+        <p className="flex flex-col items-center justify-center w-full max-w-md bg-base-100 border border-base-300 rounded-2xl shadow-md p-6 text-center">
+          <TriangleAlert size={70} className="text-gray-500 text-center" />
+          <p className="text-2xl text-base-content/70">Issue not found.</p>
+          <div className="mt-4">
+            <Link to="/issues" className="btn btn-neutral mr-2">
+              <Undo2 />
+              Go Back
+            </Link>
+            <Link className="btn btn-primary" to="/report-issue">
+              <Plus />
+              Report first issue
+            </Link>
+          </div>
+        </p>
       </div>
     );
 
@@ -100,7 +116,7 @@ const IssueDetails = () => {
         )}
 
         <div className="card-body">
-          <h2 className="card-title text-3xl font-bold">{issue.title}</h2>
+          <h1 className="card-title">{issue.title}</h1>
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="p-3 rounded-md bg-base-200">
               <p className="text-sm opacity-70">Category</p>
@@ -163,13 +179,15 @@ const IssueDetails = () => {
 
       <div className="card bg-base-100 shadow-xl border border-base-200">
         <div className="card-body">
-          <h2 className="text-2xl font-bold mb-4">
-            Contributors ({contributions.length})
+          <h2>
+            Contributors
+            {contributions.length === 0 ? "" : ` (${contributions.length})`}
           </h2>
 
           {contributions.length === 0 ? (
-            <p className="text-center opacity-70 py-6">
-              No contributions yet. Be the first!
+            <p className="text-center text-lg opacity-70 py-6 mb-4 ">
+              <HeartHandshake className="inline-block mb-1" size={20} /> No
+              contributions yet. Be the first!
             </p>
           ) : (
             <div className="relative overflow-x-auto sm:rounded-lg">
@@ -187,7 +205,7 @@ const IssueDetails = () => {
                       <td>
                         <div className="flex items-center gap-3">
                           <div className="avatar">
-                            <div className="mask mask-squircle w-10 h-10">
+                            <div className="rounded-full border-2 border-primary w-10 h-10">
                               <img
                                 src={c.contributorImage}
                                 alt={c.contributorName}
@@ -196,7 +214,6 @@ const IssueDetails = () => {
                           </div>
                           <div>
                             <p className="font-semibold">{c.contributorName}</p>
-                            <p className="text-xs opacity-70">{c.email}</p>
                           </div>
                         </div>
                       </td>

@@ -8,12 +8,16 @@ import { Eye, EyeOff, UserRoundPlus, LogIn } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const { signInUsingEmail, signInUsingGoogle, setUser, firebaseErrors } =
+  const { user, signInUsingEmail, signInUsingGoogle, setUser, firebaseErrors } =
     useAuth();
 
   const location = useLocation();
   const navigate = useNavigate();
   const state = location.state;
+
+  if (user && user?.email) {
+    navigate("/profile");
+  }
 
   const [error, setError] = useState(null);
   const [showPass, setShowPass] = useState(false);
@@ -74,7 +78,7 @@ const Login = () => {
         <div className="hero-content flex-col">
           <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
             <div className="card-body">
-              <h2 className="text-2xl font-semibold text-center">Login</h2>
+              <h1>Login</h1>
 
               {loginMessage && <Info message={loginMessage} />}
               {error && <Error message={error} />}
@@ -120,7 +124,7 @@ const Login = () => {
 
                 <div className="flex flex-col md:flex-row items-center justify-between gap-2 lg:mt-2">
                   <button
-                    className="btn btn-block lg:flex-1"
+                    className="btn btn-outline btn-block lg:flex-1"
                     type="button"
                     onClick={handleGoogleSignIn}
                   >

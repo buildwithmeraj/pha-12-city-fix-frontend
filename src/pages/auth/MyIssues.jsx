@@ -4,6 +4,7 @@ import axiosInstance from "../../hooks/axiosInstance";
 import Loading from "../../components/utilities/Loading";
 import { Link } from "react-router";
 import { useAuth } from "../../contexts/AuthContext";
+import { TriangleAlert, Plus } from "lucide-react";
 
 const MyIssues = () => {
   const { user } = useAuth();
@@ -105,7 +106,20 @@ const MyIssues = () => {
       <h2>My Reported Issues</h2>
 
       {issues.length === 0 ? (
-        <p className="text-center text-base-content/70">No issues found.</p>
+        <div className="flex flex-col items-center justify-center min-h-[50vh]">
+          <p className="flex flex-col items-center justify-center w-full max-w-md bg-base-100 border border-base-300 rounded-2xl shadow-md p-6 text-center">
+            <TriangleAlert size={70} className="text-gray-500 text-center" />
+            <p className="text-2xl text-base-content/70">
+              You don't have any issues reported.
+            </p>
+            <div className="mt-4">
+              <Link className="btn btn-primary" to="/report-issue">
+                <Plus />
+                Report an Issue
+              </Link>
+            </div>
+          </p>
+        </div>
       ) : (
         <div className="relative overflow-x-auto shadow-lg sm:rounded-lg bg-base-100 border border-base-300">
           <table className="w-full text-sm text-left text-base-content">

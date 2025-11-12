@@ -7,7 +7,7 @@ import { IoLogoYoutube } from "react-icons/io5";
 const Footer = () => {
   return (
     <footer className="bg-base-200 text-base-content border-t border-base-300">
-      <div className="px-[3%] xl:px-[7%] py-[2%]">
+      <div className="px-[3%] xl:px-[7%] py-[5%] lg:py-[2%]">
         <div className="md:flex md:justify-between md:items-start gap-10">
           <div className="text-center md:text-justify mb-8 md:mb-0 max-w-sm">
             <Link
@@ -42,9 +42,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="link link-hover">
-                    Contact US
-                  </Link>
+                  <Link to="/volunteer">Become a Volunteer</Link>
                 </li>
               </ul>
             </div>
@@ -68,8 +66,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <Link to="/report-issue" className="link link-hover">
-                    Report Issue
+                  <Link to="#" className="link link-hover">
+                    Contact US
                   </Link>
                 </li>
               </ul>

@@ -21,7 +21,7 @@ const Profile = () => {
     <div className="flex flex-col items-center gap-8 p-6">
       <title>Profile - CityFix</title>{" "}
       <div className="w-full max-w-md bg-base-100 border border-base-300 rounded-2xl shadow-md p-6 text-center">
-        <h2 className="text-2xl font-bold text-primary mb-4">Profile</h2>
+        <h1 className="mb-4">Profile</h1>
 
         {user?.photoURL ? (
           <img

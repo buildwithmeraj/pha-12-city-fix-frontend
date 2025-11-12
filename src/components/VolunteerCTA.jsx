@@ -1,9 +1,11 @@
+import { LifeBuoy } from "lucide-react";
 import React from "react";
 import { Link } from "react-router";
 
 const VolunteerCTA = () => {
   return (
     <section className="bg-gradient-to-r from-green-600 to-emerald-700 text-white py-16 mt-12 rounded-xl">
+      <title>Volunteer - CityFix</title>
       <div className="max-w-5xl mx-auto text-center px-6">
         <h2 className="text-3xl font-bold mb-4">
           Join Our Community Clean Drive!
@@ -18,6 +20,7 @@ const VolunteerCTA = () => {
           className="btn btn-wide bg-white text-green-700 border-none hover:bg-green-100 shadow-md hover:shadow-lg transition font-semibold"
           to="/volunteer"
         >
+          <LifeBuoy size={18} className="inline-block mt-0.5" />
           Become a Volunteer
         </Link>
       </div>
