@@ -1,10 +1,11 @@
 import toast from "react-hot-toast";
 import axiosInstance from "../hooks/axiosInstance";
-import Loading from "../components/utilities/Loading";
-import IssueCard from "../components/IssueCard";
+import Loading from "./utilities/Loading";
+import IssueCard from "./IssueCard";
 import { useEffect, useState } from "react";
+import { Fade } from "react-awesome-reveal";
 
-const LatestIssues = () => {
+const RecentIssues = () => {
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,7 +34,9 @@ const LatestIssues = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {issues.map((issue) => (
-            <IssueCard key={issue._id || issue.id} issue={issue} />
+            <Fade>
+              <IssueCard key={issue._id || issue.id} issue={issue} />
+            </Fade>
           ))}
         </div>
       )}
@@ -41,4 +44,4 @@ const LatestIssues = () => {
   );
 };
 
-export default LatestIssues;
+export default RecentIssues;

@@ -11,6 +11,7 @@ import IssueDetails from "../pages/issues/IssueDetails";
 import Profile from "../pages/auth/Profile";
 import MyIssues from "../pages/auth/MyIssues";
 import MyContributions from "../pages/auth/MyContributions";
+import VolunteerForm from "../pages/VolunteerForm";
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const routes = createBrowserRouter([
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
+      {
+        path: "/volunteer",
+        element: <VolunteerForm />,
+      },
       {
         path: "/profile",
         element: (

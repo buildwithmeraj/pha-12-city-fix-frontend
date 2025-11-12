@@ -65,7 +65,7 @@ const MyContributions = () => {
   return (
     <div>
       <title>My Contributions - CityFix</title>
-      <div className="p-2 md:p-4 lg:p-8">
+      <div className="px-2 md:px-4 lg:px-8">
         <h2 className="">My Contributions ({contributions.length})</h2>
 
         {contributions.length === 0 ? (

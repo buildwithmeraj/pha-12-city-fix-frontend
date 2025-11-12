@@ -9,8 +9,11 @@ const Footer = () => {
     <footer className="bg-base-200 text-base-content border-t border-base-300">
       <div className="px-[3%] xl:px-[7%] py-[2%]">
         <div className="md:flex md:justify-between md:items-start gap-10">
-          <div className="mb-8 md:mb-0 max-w-sm">
-            <Link to="/" className="flex items-center gap-3 mb-3">
+          <div className="text-center md:text-justify mb-8 md:mb-0 max-w-sm">
+            <Link
+              to="/"
+              className="flex justify-center md:justify-normal items-center gap-3 mb-3"
+            >
               <img src={logo} alt="CityFix Logo" className="w-10 h-10" />
               <span className="text-2xl font-bold">
                 City<span className="text-primary">Fix</span>

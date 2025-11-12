@@ -89,7 +89,7 @@ const AddIssue = () => {
             required
             disabled={loading}
           >
-            <option value="">
+            <option value="" disabled>
               {loading ? "Loading categories..." : "Select a category"}
             </option>
             {categories.map((cat) => (

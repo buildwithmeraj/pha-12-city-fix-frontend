@@ -100,7 +100,7 @@ const MyIssues = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="p-2 md:p-4 lg:p-8">
+    <div className="px-2 md:px-4 lg:px-8">
       <title>My Issues - CityFix</title>
       <h2>My Reported Issues</h2>
 

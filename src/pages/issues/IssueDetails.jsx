@@ -90,11 +90,11 @@ const IssueDetails = () => {
       <title>Issue Details - CityFix</title>
       <div className="card bg-base-100 shadow-xl border border-base-200 mb-10">
         {issue.image && (
-          <figure>
+          <figure className="relative w-full">
             <img
               src={issue.image}
               alt={issue.title}
-              className="w-full h-96 object-cover"
+              className="w-full h-[60vh] md:h-[70vh] object-cover object-center"
             />
           </figure>
         )}
