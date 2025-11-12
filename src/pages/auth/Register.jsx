@@ -3,12 +3,8 @@ import { useAuth } from "../../contexts/AuthContext";
 import { NavLink, useNavigate, useLocation } from "react-router";
 import toast from "react-hot-toast";
 import Error from "../../components/utilities/Error";
-import { IoEye } from "react-icons/io5";
-import { IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
-import { FaUserPlus } from "react-icons/fa6";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { FaSignInAlt } from "react-icons/fa";
+import { Eye, EyeOff, UserRoundPlus, ExternalLink, LogIn } from "lucide-react";
 
 const Register = () => {
   const {
@@ -130,43 +126,43 @@ const Register = () => {
                     placeholder="Password"
                     name="password"
                   />
-                  <span className="z-30" onClick={() => setShowPass(!showPass)}>
-                    {showPass ? (
-                      <IoEye className="absolute right-2 top-2 cursor-pointer text-2xl text-gray-600" />
-                    ) : (
-                      <IoEyeOff className="absolute right-2 top-2 cursor-pointer text-2xl text-gray-600" />
-                    )}
+                  <span
+                    className="absolute right-2 top-2 cursor-pointer text-2xl text-gray-600"
+                    onClick={() => setShowPass(!showPass)}
+                  >
+                    {showPass ? <Eye /> : <EyeOff />}
                   </span>
                 </div>
-                <div className="mt-2 flex flex-col lg:flex-row lg:justify-between gap-2">
-                  <NavLink
-                    to="/login"
-                    className="link link-hover text-lg flex items-center gap-2"
-                  >
-                    <FaSignInAlt />
-                    Already registered?
-                  </NavLink>
-                  <a
-                    href="https://imgbb.com"
-                    className="link link-hover text-lg flex items-center gap-2"
-                    target="_blank"
-                  >
-                    <FaExternalLinkAlt />
-                    Upload a Photo
-                  </a>
-                </div>
+
+                <a
+                  href="https://imgbb.com"
+                  className="link link-hover flex items-center ml-1 mt-2 gap-2"
+                  target="_blank"
+                >
+                  <ExternalLink size={18} />
+                  Upload a Photo
+                </a>
                 <button className="btn btn-primary mt-4" type="submit">
-                  <FaUserPlus />
+                  <UserRoundPlus size={16} />
                   Register
                 </button>
-                <button
-                  className="btn mt-2 w-full"
-                  type="button"
-                  onClick={handleGoogleSignUp}
-                >
-                  <FcGoogle />
-                  Connect with Google
-                </button>
+                <div className="flex flex-col md:flex-row items-center justify-between gap-2 lg:mt-2">
+                  <button
+                    className="btn btn-block lg:flex-1 "
+                    type="button"
+                    onClick={handleGoogleSignUp}
+                  >
+                    <FcGoogle />
+                    Connect with Google
+                  </button>
+                  <NavLink
+                    to="/login"
+                    className="btn btn-success text-white flex btn-block lg:flex-1 items-center gap-2"
+                  >
+                    <LogIn size={16} />
+                    Login
+                  </NavLink>
+                </div>
               </fieldset>
             </div>
           </div>

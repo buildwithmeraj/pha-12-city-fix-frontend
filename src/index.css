@@ -49,7 +49,7 @@
   --color-base-300: oklch(20% 0 0);
   --color-base-content: oklch(82.901% 0.031 222.959);
   --color-primary: oklch(75% 0.183 55.934);
-  --color-primary-content: oklch(0% 0 0);
+  --color-primary-content: oklch(96% 0.003 264.542);
   --color-secondary: oklch(73.375% 0.165 35.353);
   --color-secondary-content: oklch(14.675% 0.033 35.353);
   --color-accent: oklch(74.229% 0.133 311.379);
@@ -58,8 +58,8 @@
   --color-neutral-content: oklch(82.901% 0.031 222.959);
   --color-info: oklch(86.078% 0.142 206.182);
   --color-info-content: oklch(17.215% 0.028 206.182);
-  --color-success: oklch(86.171% 0.142 166.534);
-  --color-success-content: oklch(17.234% 0.028 166.534);
+  --color-success: oklch(72% 0.219 149.579);
+  --color-success-content: oklch(98% 0.003 247.858);
   --color-warning: oklch(86.163% 0.142 94.818);
   --color-warning-content: oklch(17.232% 0.028 94.818);
   --color-error: oklch(64% 0.246 16.439);
@@ -91,16 +91,6 @@ h2 {
   @apply text-3xl font-bold text-center my-8;
 }
 
-.banner {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("/public/banner-bg.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 .swiper {
   width: 100%;
   height: 100%;

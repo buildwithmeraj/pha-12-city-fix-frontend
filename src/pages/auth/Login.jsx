@@ -3,10 +3,8 @@ import { useAuth } from "../../contexts/AuthContext";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import Error from "../../components/utilities/Error";
-import { IoEye, IoEyeOff } from "react-icons/io5";
+import { Eye, EyeOff, UserRoundPlus, ExternalLink, LogIn } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
-import { FaSignInAlt } from "react-icons/fa";
-import { FaUserPlus } from "react-icons/fa6";
 
 const Login = () => {
   const { signInUsingEmail, signInUsingGoogle, setUser, user, firebaseErrors } =
@@ -110,17 +108,17 @@ const Login = () => {
                     className="absolute right-2 top-2 cursor-pointer text-2xl text-gray-600"
                     onClick={() => setShowPass(!showPass)}
                   >
-                    {showPass ? <IoEye /> : <IoEyeOff />}
+                    {showPass ? <Eye /> : <EyeOff />}
                   </span>
                 </div>
 
                 <button className="btn btn-primary mt-4 w-full" type="submit">
-                  <FaSignInAlt />
+                  <LogIn size={16} />
                   Login
                 </button>
-                <div className="flex flex-col md:flex-row items-center justify-between gap-2 mt-2">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-2 lg:mt-2">
                   <button
-                    className="btn  btn-block lg:flex-1 "
+                    className="btn btn-block lg:flex-1 "
                     type="button"
                     onClick={handleGoogleSignIn}
                   >
@@ -131,7 +129,7 @@ const Login = () => {
                     to="/register"
                     className="btn btn-success text-white flex btn-block lg:flex-1 items-center gap-2"
                   >
-                    <FaUserPlus />
+                    <UserRoundPlus size={16} />
                     Register
                   </NavLink>
                 </div>

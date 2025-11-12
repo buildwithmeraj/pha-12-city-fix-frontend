@@ -1,68 +1,59 @@
 import React from "react";
 
 const Categories = () => {
+  const categories = [
+    {
+      title: "Garbage",
+      image: "https://i.ibb.co.com/zTsk0zHw/163013-1.jpg",
+      description:
+        "Keep your neighborhood free from uncollected waste and overflowing bins.",
+    },
+    {
+      title: "Illegal Construction",
+      image: "https://i.ibb.co.com/Z60L5VpP/2149437818.jpg",
+      description:
+        "Report unauthorized buildings or encroachments in your area.",
+    },
+    {
+      title: "Broken Public Property",
+      image: "https://i.ibb.co.com/4wVsFFjD/2149437831.jpg",
+      description:
+        "Help restore damaged benches, lights, or signs around your city.",
+    },
+    {
+      title: "Road Damage",
+      image: "https://i.ibb.co.com/M5BT4X3j/2149437945.jpg",
+      description:
+        "Report potholes, cracks, or broken sidewalks to make roads safer.",
+    },
+  ];
+
   return (
-    <div>
+    <div className="py-6">
       <h2>Categories</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="card bg-base-100 shadow-sm">
-          <figure>
-            <img
-              src="https://i.ibb.co.com/zTsk0zHw/163013-1.jpg"
-              alt="Garbage"
-            />
-          </figure>
-          <div className="card-body">
-            <h3 className="card-title">Garbage</h3>
-            <p>
-              Keep your neighborhood free from uncollected waste and overflowing
-              bins.
-            </p>
-          </div>
-        </div>
 
-        <div className="card bg-base-100 shadow-sm">
-          <figure>
-            <img
-              src="https://i.ibb.co.com/Z60L5VpP/2149437818.jpg"
-              alt="Illegal Construction"
-            />
-          </figure>
-          <div className="card-body">
-            <h3 className="card-title">Illegal Construction</h3>
-            <p>Report unauthorized buildings or encroachments in your area.</p>
-          </div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {categories.map((cat, idx) => (
+          <div
+            key={idx}
+            className="rounded-xl border border-base-300 bg-base-100 hover:bg-base-200 transition-all duration-300 shadow-sm hover:shadow-md overflow-hidden"
+          >
+            <div className="relative h-48 w-full overflow-hidden">
+              <img
+                src={cat.image}
+                alt={cat.title}
+                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
 
-        <div className="card bg-base-100 shadow-sm">
-          <figure>
-            <img
-              src="https://i.ibb.co.com/4wVsFFjD/2149437831.jpg"
-              alt="Broken Public Property"
-            />
-          </figure>
-          <div className="card-body">
-            <h3 className="card-title">Broken Public Property</h3>
-            <p>
-              Help restore damaged benches, lights, or signs around your city.
-            </p>
+            <div className="p-5 space-y-3">
+              <h3 className="font-semibold text-lg text-base-content">
+                {cat.title}
+              </h3>
+              <p className="text-sm text-base-content/70">{cat.description}</p>
+            </div>
           </div>
-        </div>
-
-        <div className="card bg-base-100 shadow-sm">
-          <figure>
-            <img
-              src="https://i.ibb.co.com/M5BT4X3j/2149437945.jpg"
-              alt="Road Damage"
-            />
-          </figure>
-          <div className="card-body">
-            <h3 className="card-title">Road Damage</h3>
-            <p>
-              Report potholes, cracks, or broken sidewalks to make roads safer.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

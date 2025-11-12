@@ -24,7 +24,8 @@ const LatestIssues = () => {
   }, []);
 
   return (
-    <div className="mt-8">
+    <div className="mt-10">
+      <h2>Recent Issues</h2>
       {loading ? (
         <Loading />
       ) : issues.length === 0 ? (

@@ -11,7 +11,6 @@ import IssueDetails from "../pages/issues/IssueDetails";
 import Profile from "../pages/auth/Profile";
 import MyIssues from "../pages/auth/MyIssues";
 import MyContributions from "../pages/auth/MyContributions";
-import UpdateIssue from "../pages/issues/UpdateIssue";
 
 const routes = createBrowserRouter([
   {
@@ -55,14 +54,6 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <AddIssue />
-          </PrivateRoutes>
-        ),
-      },
-      {
-        path: "/update-issue/:id",
-        element: (
-          <PrivateRoutes>
-            <UpdateIssue />
           </PrivateRoutes>
         ),
       },

@@ -17,7 +17,7 @@ const MyIssues = () => {
 
   const fetchIssues = async () => {
     try {
-      const response = await axiosInstance.get("/issues");
+      const response = await axiosInstance.get(`/issues?email=${user?.email}`);
       setIssues(response.data);
     } catch (error) {
       toast.error("Failed to load issues: " + error.message);
@@ -101,9 +101,8 @@ const MyIssues = () => {
 
   return (
     <div className="p-2 md:p-4 lg:p-8">
-      <h2 className="text-3xl font-bold text-primary mb-6 text-center">
-        My Reported Issues
-      </h2>
+      <title>My Issues - CityFix</title>
+      <h2>My Reported Issues</h2>
 
       {issues.length === 0 ? (
         <p className="text-center text-base-content/70">No issues found.</p>

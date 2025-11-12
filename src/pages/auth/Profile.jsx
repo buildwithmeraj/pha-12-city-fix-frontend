@@ -19,7 +19,7 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col items-center gap-8 p-6">
-      {" "}
+      <title>Profile - CityFix</title>{" "}
       <div className="w-full max-w-md bg-base-100 border border-base-300 rounded-2xl shadow-md p-6 text-center">
         <h2 className="text-2xl font-bold text-primary mb-4">Profile</h2>
 
@@ -37,7 +37,7 @@ const Profile = () => {
         <h5 className="mt-3 text-lg font-semibold text-base-content">
           {user?.displayName || "User"}
         </h5>
-        <p className="text-sm text-gray-500">{user?.email || "N/A"}</p>
+        <p className="text-sm ">{user?.email || "N/A"}</p>
 
         <button
           onClick={handleLogout}
@@ -52,7 +52,7 @@ const Profile = () => {
           <div className="card-body items-center text-center">
             <FaRegListAlt className="text-primary text-4xl mb-3" />
             <h3 className="card-title text-lg text-primary">Your Issues</h3>
-            <p className="text-sm text-gray-500 mb-3">
+            <p className="text-sm  mb-3">
               Manage issues you’ve reported and check their status anytime.
             </p>
             <Link className="btn btn-primary btn-sm w-full" to="/my-issues">
@@ -67,7 +67,7 @@ const Profile = () => {
             <h3 className="card-title text-lg text-primary">
               Your Contributions
             </h3>
-            <p className="text-sm text-gray-500 mb-3">
+            <p className="text-sm  mb-3">
               See the contributions you’ve made and track your community impact.
             </p>
             <Link
@@ -83,7 +83,7 @@ const Profile = () => {
           <div className="card-body items-center text-center">
             <FaPlusCircle className="text-primary text-4xl mb-3" />
             <h3 className="card-title text-lg text-primary">Report Issue</h3>
-            <p className="text-sm text-gray-500 mb-3">
+            <p className="text-sm  mb-3">
               Report a new issue to help make your city a cleaner, better place.
             </p>
             <Link className="btn btn-primary btn-sm w-full" to="/report-issue">

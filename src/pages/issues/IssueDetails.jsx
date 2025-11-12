@@ -87,6 +87,7 @@ const IssueDetails = () => {
 
   return (
     <div className="max-w-6xl mx-auto py-10 px-4">
+      <title>Issue Details - CityFix</title>
       <div className="card bg-base-100 shadow-xl border border-base-200 mb-10">
         {issue.image && (
           <figure>

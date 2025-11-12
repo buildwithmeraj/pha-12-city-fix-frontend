@@ -6,6 +6,7 @@ import ErrorImage from "../components/utilities/ErrorImage";
 const ErrorPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <title>Error 404 - CityFix</title>
       <Header />
       <main className="flex-1 px-[3%] py-[1%] flex items-center justify-center h-[70vh] flex-col gap-4 pt-4">
         <ErrorImage />

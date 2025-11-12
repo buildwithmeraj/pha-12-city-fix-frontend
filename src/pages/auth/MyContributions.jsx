@@ -4,9 +4,9 @@ import axiosInstance from "../../hooks/axiosInstance";
 import { useAuth } from "../../contexts/AuthContext";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import ContributionsTable from "../../components/ContributionsTable";
 import { Link } from "react-router";
-import { Download } from "lucide-react";
+import { Download, HeartHandshake } from "lucide-react";
+import Loading from "../../components/utilities/Loading";
 
 const MyContributions = () => {
   const [contributions, setContributions] = useState([]);
@@ -59,24 +59,21 @@ const MyContributions = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <span className="loading loading-spinner loading-lg text-green-600"></span>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
     <div>
+      <title>My Contributions - CityFix</title>
       <div className="p-2 md:p-4 lg:p-8">
         <h2 className="">My Contributions ({contributions.length})</h2>
 
         {contributions.length === 0 ? (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">💚</div>
-            <p className="text-lg md:text-xl text-base-content/70">
-              Be the first to contribute!
-            </p>
+          <div className="text-center py-12 ">
+            <div className="text-lg md:text-xl text-base-content/70 flex items-center gap-2 justify-center">
+              <HeartHandshake />
+              There are no contribution from you.
+            </div>
           </div>
         ) : (
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg border border-base-300">
@@ -159,7 +156,11 @@ const MyContributions = () => {
         )}
       </div>
       <div className="mt-2 text-center">
-        <button onClick={downloadReport} className="btn btn-success">
+        <button
+          onClick={downloadReport}
+          className="btn btn-success"
+          disabled={contributions.length === 0}
+        >
           <Download size={16} />
           Download Report
         </button>
