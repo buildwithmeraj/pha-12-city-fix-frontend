@@ -65,7 +65,7 @@ const NavBar = () => {
             </ul>
           </div>
 
-          <Link className="text-3xl flex items-center gap-2 font-bold" to="/">
+          <Link className="text-3xl flex items-center gap-1 font-bold" to="/">
             <img src={logo} alt="logo" className="w-10" />
             <span>
               City<span className="text-[#FC785E]">Fix</span>

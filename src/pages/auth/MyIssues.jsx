@@ -103,7 +103,9 @@ const MyIssues = () => {
   return (
     <div className="px-2 md:px-4 lg:px-8">
       <title>My Issues - CityFix</title>
-      <h2>My Reported Issues</h2>
+      <h2>
+        My Reported Issues{issues.length === 0 ? "" : ` (${issues.length})`}
+      </h2>
 
       {issues.length === 0 ? (
         <div className="flex flex-col items-center justify-center min-h-[50vh]">

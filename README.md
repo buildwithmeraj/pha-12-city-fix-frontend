@@ -1,15 +1,30 @@
-# CityFix
+# CityFix Frontend
 
-CityFix is a community-driven platform designed to help citizens report urban issues, contribute to solutions, and track improvements in their city.
+This is the frontend of the **CityFix** project — a community issue reporting platform that allows users to report, track, and contribute to fixing city maintenance problems such as garbage, road damage, or broken public property.
 
 ### Live Site: [https://city-fix.pages.dev](https://city-fix.pages.dev)
 
 ## Features
 
-- Users can report local issues such as garbage, road damage, or illegal construction.
-- Each issue includes a suggested fix budget and location details.
-- Logged-in users can contribute funds toward fixing specific issues.
-- Displays progress bars and contributor lists for each issue.
-- Secure authentication with Google or email login.
-- Responsive, modern UI built with React, Tailwind, and DaisyUI.
-- Backend powered by Express.js and MongoDB Atlas.
+- Built with **React (Vite)** for fast and modern development
+- Styled using **Tailwind CSS** and **DaisyUI**
+- Authentication with **Firebase**
+- Toast and alert notifications using **react-hot-toast**
+- Smooth animations with **React Awesome Reveal**
+- Dynamic routing with **React Router v7**
+- PDF report generation using **jsPDF** and **jsPDF-AutoTable**
+- Responsive UI and mobile-friendly layout
+- API integration with CityFix Backend (Express + MongoDB)
+
+## Tech Stack
+
+- React 19 + Vite
+- Tailwind CSS + DaisyUI
+- Firebase Authentication
+- Axios
+- jsPDF + jsPDF-AutoTable
+- React Router
+- React Hot Toast
+- React Awesome Reveal / Simple Typewriter
+- Lucide React Icons
+- Swiper Slider

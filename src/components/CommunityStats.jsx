@@ -1,36 +1,43 @@
+import { Hourglass, UsersRound, CircleCheckBig } from "lucide-react";
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 
 const CommunityStats = () => {
   return (
-    <section className="py-8 rounded-lg">
-      <div className="max-w-6xl mx-auto text-center px-6">
+    <>
+      <div className="mx-auto text-center px-6">
         <h2>Community Stats</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <Fade>
-            <div className="card bg-green-100 p-6 rounded-lg shadow hover:shadow-md transition">
-              <h3 className="text-4xl font-bold text-green-700">800+</h3>
-              <p className="text-gray-700 font-medium mt-2">Registered Users</p>
+        <div className="stats shadow backdrop-blur-lg">
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <UsersRound />
             </div>
-          </Fade>
+            <div className="stat-title">Registered Users</div>
+            <div className="stat-value text-primary">800+</div>
+            <div className="stat-desc">21% more than last month</div>
+          </div>
 
-          <Fade>
-            <div className="card bg-blue-100 p-6 rounded-lg shadow hover:shadow-md transition">
-              <h3 className="text-4xl font-bold text-blue-700">250+</h3>
-              <p className="text-gray-700 font-medium mt-2">Issues Resolved</p>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <CircleCheckBig />
             </div>
-          </Fade>
+            <div className="stat-title">Issues Resolved</div>
+            <div className="stat-value text-secondary">250+</div>
+            <div className="stat-desc">32% more than last month</div>
+          </div>
 
-          <Fade>
-            <div className="card bg-amber-100 p-6 rounded-lg shadow hover:shadow-md transition">
-              <h3 className="text-4xl font-bold text-amber-700">150+</h3>
-              <p className="text-gray-700 font-medium mt-2">Pending Issues</p>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <Hourglass absoluteStrokeWidth size={26} />
             </div>
-          </Fade>
+            <div className="stat-value">150+</div>
+            <div className="stat-title">Ongoing Issues</div>
+            <div className="stat-desc text-secondary">30 new this month</div>
+          </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

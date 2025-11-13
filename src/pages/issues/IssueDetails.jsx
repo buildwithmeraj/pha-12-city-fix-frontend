@@ -110,7 +110,7 @@ const IssueDetails = () => {
             <img
               src={issue.image}
               alt={issue.title}
-              className="w-full h-[60vh] md:h-[70vh] object-cover object-center"
+              className="w-full h-auto md:h-[70vh] object-cover object-center"
             />
           </figure>
         )}
@@ -235,7 +235,9 @@ const IssueDetails = () => {
       {showModal && (
         <dialog open className="modal modal-open">
           <div className="modal-box max-w-2xl bg-base-100">
-            <h3 className="font-bold text-2xl mb-4">Clean-Up Contribution</h3>
+            <h3 className="font-bold text-2xl mb-2 md:mb-4">
+              Clean-Up Contribution
+            </h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
@@ -334,7 +336,7 @@ const IssueDetails = () => {
                 {new Date().toLocaleDateString()}
               </div>
 
-              <div className="modal-action">
+              <div className="modal-action mt-1">
                 <button
                   type="button"
                   className="btn"

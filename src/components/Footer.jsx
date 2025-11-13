@@ -7,12 +7,12 @@ import { IoLogoYoutube } from "react-icons/io5";
 const Footer = () => {
   return (
     <footer className="bg-base-200 text-base-content border-t border-base-300">
-      <div className="px-[3%] xl:px-[7%] py-[5%] lg:py-[2%]">
+      <div className="px-[3%] xl:px-[7%] py-[2%]">
         <div className="md:flex md:justify-between md:items-start gap-10">
-          <div className="text-center md:text-justify mb-8 md:mb-0 max-w-sm">
+          <div className="text-center md:text-justify mt-4 md:mt-0 mb-8 md:mb-0 max-w-sm">
             <Link
               to="/"
-              className="flex justify-center md:justify-normal items-center gap-3 mb-3"
+              className="flex justify-center md:justify-normal items-center gap-1 mb-3"
             >
               <img src={logo} alt="CityFix Logo" className="w-10 h-10" />
               <span className="text-2xl font-bold">
@@ -24,6 +24,7 @@ const Footer = () => {
               together we fix what matters.
             </p>
           </div>
+          <hr className="my-8 border-base-300 md:hidden" />
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
             <div>
