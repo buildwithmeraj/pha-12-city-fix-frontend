@@ -8,7 +8,7 @@ const CommunityStats = () => {
       <div className="mx-auto text-center px-6">
         <h2>Community Stats</h2>
 
-        <div className="stats shadow backdrop-blur-lg">
+        <div className="stats stats-vertical lg:stats-horizontal shadow backdrop-blur-lg">
           <div className="stat">
             <div className="stat-figure text-primary">
               <UsersRound />
